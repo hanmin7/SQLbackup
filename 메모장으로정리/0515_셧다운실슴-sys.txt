@@ -1,0 +1,121 @@
+[oracle@localhost ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 11.2.0.1.0 Production on Fri May 15 10:46:54 2020
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+Connected to an idle instance.
+
+SQL> startup
+ORACLE instance started.
+
+Total System Global Area  830930944 bytes
+Fixed Size                  2217912 bytes
+Variable Size             494929992 bytes
+Database Buffers          331350016 bytes
+Redo Buffers                2433024 bytes
+Database mounted.
+Database opened.
+SQL> exit
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+[oracle@localhost ~]$ cd $ORACLE_HOME/sqlplus/admin
+[oracle@localhost admin]$ ls
+glogin.sql  help  libsqlplus.def  plustrce.sql  pupbld.sql
+[oracle@localhost admin]$ vi glogin.sql
+[oracle@localhost admin]$ vi glogin.sql
+[oracle@localhost admin]$ cd
+[oracle@localhost ~]$ pwd
+/home/oracle
+[oracle@localhost ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 11.2.0.1.0 Production on Fri May 15 12:26:37 2020
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SYS> shutdown transactionall;
+SP2-0717: illegal SHUTDOWN option
+SYS> shutdown transactional;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SYS> startup
+ORACLE instance started.
+
+Total System Global Area  830930944 bytes
+Fixed Size                  2217912 bytes
+Variable Size             499124296 bytes
+Database Buffers          327155712 bytes
+Redo Buffers                2433024 bytes
+Database mounted.
+Database opened.
+SYS> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SYS> startup
+ORACLE instance started.
+
+Total System Global Area  830930944 bytes
+Fixed Size                  2217912 bytes
+Variable Size             499124296 bytes
+Database Buffers          327155712 bytes
+Redo Buffers                2433024 bytes
+Database mounted.
+Database opened.
+SYS> startup force
+ORACLE instance started.
+
+Total System Global Area  830930944 bytes
+Fixed Size                  2217912 bytes
+Variable Size             499124296 bytes
+Database Buffers          327155712 bytes
+Redo Buffers                2433024 bytes
+Database mounted.
+Database opened.
+SYS> shutdown abort
+ORACLE instance shut down.
+SYS> startup nomount
+ORACLE instance started.
+
+Total System Global Area  830930944 bytes
+Fixed Size                  2217912 bytes
+Variable Size             499124296 bytes
+Database Buffers          327155712 bytes
+Redo Buffers                2433024 bytes
+SYS> startup
+ORA-01081: cannot start already-running ORACLE - shut it down first
+SYS> alter database mount;
+
+Database altered.
+
+SYS> alter database open;
+
+Database altered.
+
+SYS> shutdown immediate
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SYS> ^[[2~^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[  
+SP2-0734: unknown command beginning "[2~  ..." - rest of line ignored.
+SYS> startup ristrict
+SP2-0714: invalid combination of STARTUP options
+SYS> startup restrict;
+ORACLE instance started.
+
+Total System Global Area  830930944 bytes
+Fixed Size                  2217912 bytes
+Variable Size             499124296 bytes
+Database Buffers          327155712 bytes
+Redo Buffers                2433024 bytes
+Database mounted.
+Database opened.
+SYS> alter system disable restricted session;
+
+System altered.

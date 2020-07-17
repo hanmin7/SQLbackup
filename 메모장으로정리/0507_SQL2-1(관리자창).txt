@@ -1,0 +1,77 @@
+SQL> conn / as sysdba
+Connected.
+SQL> CREATE USER om IDENTIFIED BY om
+  2  DEFAULT TABLESPACE users
+  3  TEMPORARY TABLESPACE temp;
+User created.
+
+SQL> connect om/om
+ERROR:
+ORA-01045: user OM lacks CREATE SESSION privilege; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> connect hr/hr
+Connected.
+SQL> conn / as sysdba
+Connected.
+SQL> GRANT create session To om;
+
+Grant succeeded.
+
+SQL> GRANT create table TO om;
+
+Grant succeeded.
+
+SQL> GRANT create synonym TO om;
+
+Grant succeeded.
+
+SQL> GRANT create public synonym TO hr;
+
+Grant succeeded.
+
+SQL> CREATE ROLE g1;
+
+Role created.
+
+SQL> GRANT create view, create sequence TO g1;
+
+Grant succeeded.
+
+SQL> SELECT city FROM hr.locations;
+
+CITY
+------------------------------------------------------------
+Oxford
+Seattle
+South San Francisco
+Southlake
+Toronto
+
+SQL> GRANT select ON hr.locations TO g1;
+
+Grant succeeded.
+
+SQL> GRANT g1 TO om;
+
+Grant succeeded.
+
+SQL> DROP ROLE g1;
+
+Role dropped.
+
+SQL> GRANT resource TO om;
+
+Grant succeeded.
+
+SQL> DROP USER om CASCADE;
+DROP USER om CASCADE
+*
+ERROR at line 1:
+ORA-01940: cannot drop a user that is currently connected
+
+
+SQL> /
+
+User dropped.
